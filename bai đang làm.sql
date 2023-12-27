@@ -35,7 +35,8 @@ select * from Product_list
  SELECT * FROM Product_list
  WHERE Quantity < 11;
  --Liệt kê danh sách sản phẩm của hãng Asus
- FROM Products
+ SELECT Products.*
+FROM Products
 INNER JOIN Hang ON Products.HangId = Hang.HangId
 WHERE Hang.TenHang = 'A';
 
@@ -45,9 +46,14 @@ FROM Hang
 GROUP BY TenHang
 
 
- --Số mặt hàng mà cửa hàng bán.--- SELECT COUNT(DISTINCT Products) AS SoMatHang
-FROM Products; --Tổng số loại sản phẩm của mỗi hãng có trong cửa hàng.-- SELECT Hang.TenHang AS TenHang,
-       COUNT(DISTINCT Products.Products) [TongSoLoaiSanPham]
-FROM Hang
-INNER JOIN Products ON Hang.HangId = Products.HangId
-GROUP BY Hang.TenHang; --Tổng số đầu sản phẩm của toàn cửa hàng--
+ --Số mặt hàng mà cửa hàng bán.---
+ SELECT COUNT(DISTINCT Products) AS SoMatHang
+FROM Products;
+
+
+ --Tổng số loại sản phẩm của mỗi hãng có trong cửa hàng.--
+
+
+
+ --Tổng số đầu sản phẩm của toàn cửa hàng--
+
